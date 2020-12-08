@@ -9,7 +9,9 @@
 @License :   (C)Copyright 2020-2021, Liugroup-NLPR-CASIA
 @Desc    :   None
 '''
-
+# 功能说明：
+# 将得到的数据绘制成横坐标为时间，纵坐标为海拔高度，用颜色的变化来表示物理量变化的
+# 大气垂直剖面图
 # here put the import lib
 import matplotlib.pyplot as plt
 
