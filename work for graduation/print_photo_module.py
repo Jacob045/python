@@ -14,13 +14,14 @@
 # 大气垂直剖面图
 # here put the import lib
 import matplotlib.pyplot as plt
+from numpy.lib.function_base import rot90
 
 # z_data存放图像信息
 # a_data存放图像信息+坐标轴信息， z_data和a_data是同源的
 # photo存放生成图片的名字
 def print_photo(z_data,a_data,photo):
-    fig=plt.figure(figsize=(5,4),dpi=600,frameon=True)
-    ax=fig.add_axes([0,0,7,2])
+    fig=plt.figure(figsize=(5,4),dpi=500,frameon=True)
+    ax=fig.add_axes([0,0,9,2])
     ax.set_xlabel('Times',fontsize=20)
     ax.set_ylabel('Height',fontsize=20)
     ca=ax.contourf(z_data,10,cmap="jet")
@@ -40,7 +41,8 @@ def print_photo(z_data,a_data,photo):
         i += 1
     x_ticks.append(Len-1)
     x_labels.append(str(xla.iloc[Len-1:Len,0:1])[30:47])
-    plt.xticks(x_ticks,x_labels,fontsize=12)
+    plt.xticks(x_ticks,x_labels,fontsize=12,rotation=45)
+
     #坐标轴信息——Y轴（设定信息并绘制）
     y_ticks = [0,2,4,6,8,10,14,18,22,26,30,34,38,42,46]
     y_labels = ['0','0.2','0.4','0.6','0.8','1.0','2.0','3.0','4.0','5.0','6.0','7.0','8.0','9.0','10.0']
