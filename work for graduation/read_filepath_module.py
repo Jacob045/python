@@ -18,11 +18,13 @@ import os
 def read_filepath(Path,Target_str):
     Level_1_path = Path
     Level_2_paths = []
+    # 第一步是搜索当前文件夹下的所有文件夹
     for root,dirs,files in os.walk(Level_1_path):
         for dir in dirs:
             Level_2_path = os.path.join(root,dir)
             Level_2_paths.append(Level_2_path)
 
+    # 第二步是搜索带特定字符串的文件
     Output_paths = []
     for Level_2_path in Level_2_paths:
         for root,dirs,files in os.walk(Level_2_path):

@@ -78,6 +78,7 @@ def draw_Linechart_photo(data,photoname):
     # 主标题
     plt.title(photoname,fontsize=20,fontweight='bold')
     # 保存图片
-    plt.savefig(photoname,bbox_inches = 'tight')
+    photopath = 'G:/python/work for graduation/photo/' + photoname + '.png'
+    plt.savefig(photopath,bbox_inches = 'tight')
     # 展示图片
     plt.show()
