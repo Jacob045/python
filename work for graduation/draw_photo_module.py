@@ -1,25 +1,28 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   print_photo_module.py
-@Time    :   2020/12/07 16:44:30
+@File    :   draw_photo_module.py
+@Time    :   2020/12/11 11:28:13
 @Author  :   Gao Shuoyuan
 @Version :   1.0
 @Contact :   jacob045@foxmail.com
 @License :   (C)Copyright 2020-2021, Liugroup-NLPR-CASIA
 @Desc    :   None
 '''
+
+# here put the import lib
+import matplotlib.pyplot as plt
+import numpy as np
+
+# --------------------------------------------------------------------------------------
 # 功能说明：
 # 将得到的数据绘制成横坐标为时间，纵坐标为海拔高度，用颜色的变化来表示物理量变化的
 # 大气垂直剖面图
-# here put the import lib
-import matplotlib.pyplot as plt
-from numpy.lib.function_base import rot90
-
+# ---------------------------------------------------------------------------------------
 # z_data存放图像信息
 # a_data存放图像信息+坐标轴信息， z_data和a_data是同源的
 # photo存放生成图片的名字
-def print_photo(z_data,a_data,photo):
+def draw_profile_photo(z_data,a_data,photo):
     fig=plt.figure(figsize=(5,4),dpi=500,frameon=True)
     ax=fig.add_axes([0,0,9,2])
     ax.set_xlabel('Times',fontsize=20)
@@ -51,4 +54,30 @@ def print_photo(z_data,a_data,photo):
     #生成图片
     plt.savefig(photo,bbox_inches = 'tight')
     #展示图片
+    plt.show()
+
+
+def draw_Linechart_photo(data,photoname):
+    plt.rcParams['figure.figsize'] = (10.0,20.0)
+    #纵轴上分布高度数值
+    Height = data.columns.values[1:48]
+    # 绘图
+    Len = len(data['Time'])
+    i = 0
+    while i<Len:
+        data_for_print = np.array(data.iloc[i:i+1,1:48]).T
+        plt.plot(data_for_print, Height, label=data['Time'][i:i+1].values)
+        i = i+1
+    #设置X轴
+    x_ticks = np.linspace(180, 320, 8)
+    plt.xticks(x_ticks,rotation=45)
+    # 启动图例
+    plt.legend()
+    # 添加网格
+    plt.grid()
+    # 主标题
+    plt.title(photoname,fontsize=20,fontweight='bold')
+    # 保存图片
+    plt.savefig(photoname,bbox_inches = 'tight')
+    # 展示图片
     plt.show()
