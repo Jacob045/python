@@ -27,8 +27,8 @@ def data_ope(filepath):
         Mean = Output.mean()
         Output = Output.append(Mean,ignore_index=True)
         Output.loc[60,'Date/Time'] = 'Mean' + filepath[69:80] + 'T' + str(Start_point[0:2] + Start_point[3:5])
-        Outpath = filepath[0:80] + 'Time' + str(Start_point[0:2] + Start_point[3:5]) + '.csv'
-        print(Outpath)
+        Outpath = filepath[0:75] + 'Time' + '.csv'
+        # + str(Start_point[0:2] + Start_point[3:5]) 
         Output.to_csv(Outpath,index=0)
 
     Search_points = ['07:30','19:30']
