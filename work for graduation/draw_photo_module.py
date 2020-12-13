@@ -63,6 +63,8 @@ def draw_Linechart_photo(data,photoname):
     Height = data.columns.values[1:48]
     # 绘图
     Len = len(data['Time'])
+    print(Len)
+    print
     i = 0
     while i<Len:
         data_for_print = np.array(data.iloc[i:i+1,1:48]).T
