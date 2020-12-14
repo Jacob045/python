@@ -1,6 +1,15 @@
+
+import numpy as np
 import pandas as pd
-path = r'I:\Data\Personal Data\graduation project\SACOL\Balloon\2007\UPAR200706.csv'
-draw_print = pd.read_csv(path)
-print(draw_print)
-draw_print.drop(draw_print.index, inplace=True)
-print(draw_print)
+
+MSE_data = pd.DataFrame()
+
+print(MSE_data)
+
+row = 0
+while row < 3:
+    MSE_data.loc[0,row] = row
+    MSE_data.loc[1,row] = row +10
+    row = row + 1
+
+print(MSE_data)
