@@ -1,25 +1,18 @@
-from datetime import date
-from os.path import join
-from numpy.lib.function_base import append
-from numpy.lib.utils import info
-import pandas as pd
-import numpy as np
-import os
+from urllib.request import urlopen, Request
+from bs4 import BeautifulSoup
 
-from pandas.io.parsers import read_csv
-filepath = r'H:\桌面\榜样的力量参会人员名单\demo'
-Target_str = 'xlsx'
+url = 'https://movie.douban.com/top250?start=%s&filter='
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'}
+ret = Request(url, headers=headers)
+html = urlopen(ret).read().decode('utf-8')
+# print(html)
 
-Output = pd.DataFrame()
-i = 1
-for root,dirs,files in os.walk(filepath):
-    for file in files:
+soup = BeautifulSoup(html,features='lxml')
+urls = soup.find_all("span",{"class":"title"})
+  
+i = 0
+for url in urls:
+    if(url.get_text()[1] != '/'):
         print(i)
-        i = i+ 1
-        if(Target_str in file):
-            # print(filepath +'\\' + file)
-            data =pd.read_excel(filepath +'\\' + file)
-            print(data.info())
-            Output = Output.append(date)
-            # Output_paths.append(os.path,join((root,file)))
-
+        i = i + 1
+        print(url.get_text())    

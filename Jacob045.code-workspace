@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "I:\\Data\\Personal Data\\graduation project\\SACOL"
+		},
+		{
+			"name": "Leetcode",
+			"path": "..\\Leetcode"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
