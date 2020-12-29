@@ -63,8 +63,7 @@ def draw_Linechart_photo(data,photoname):
     Height = data.columns.values[1:48]
     # 绘图
     Len = len(data['Time'])
-    print(Len)
-    print
+    print('The len is ' + str(Len))
     i = 0
     while i<Len:
         data_for_print = np.array(data.iloc[i:i+1,1:48]).T
@@ -73,6 +72,8 @@ def draw_Linechart_photo(data,photoname):
     #设置X轴
     x_ticks = np.linspace(180, 320, 8)
     plt.xticks(x_ticks,rotation=45)
+    plt.xlabel("Fahrenheit K")
+    plt.ylabel("Altitude km")
     # 启动图例
     plt.legend()
     # 添加网格
@@ -80,7 +81,7 @@ def draw_Linechart_photo(data,photoname):
     # 主标题
     plt.title(photoname,fontsize=20,fontweight='bold')
     # 保存图片
-    photopath = 'G:/python/work for graduation/photo/' + photoname + '.png'
+    photopath = 'G:/python/Graduation design/photo/' + photoname + '.png'
     plt.savefig(photopath,bbox_inches = 'tight')
     # 展示图片
-    plt.show()
+    # plt.show()

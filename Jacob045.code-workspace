@@ -1,10 +1,16 @@
 {
 	"folders": [
 		{
+			"name": "python",
 			"path": "."
 		},
 		{
+			"name": "SACOL",
 			"path": "I:\\Data\\Personal Data\\graduation project\\SACOL"
+		},
+		{
+			"name": "Java",
+			"path": "..\\Java"
 		},
 		{
 			"name": "Leetcode",
@@ -12,6 +18,12 @@
 		}
 	],
 	"settings": {
-		"git.ignoreLimitWarning": true
+		"git.ignoreLimitWarning": true,
+		"files.exclude": {
+			"**/.classpath": true,
+			"**/.project": true,
+			"**/.settings": true,
+			"**/.factorypath": true
+		}
 	}
 }
