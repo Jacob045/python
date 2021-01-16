@@ -15,6 +15,12 @@
 		{
 			"name": "Leetcode",
 			"path": "..\\Leetcode"
+		},
+		{
+			"path": "..\\DeepingLearning"
+		},
+		{
+			"path": "I:\\Data\\Personal Data\\graduation project\\yuzhongzhan"
 		}
 	],
 	"settings": {
@@ -41,6 +47,9 @@
 			"titleBar.inactiveBackground": "#ff3d0099",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},
-		"peacock.color": "#ff3d00"
+		"peacock.color": "#ff3d00",
+		"jupyter.jupyterServerType": "local",
+		"python.autoComplete.addBrackets": true,
+		"python.languageServer": "Pylance"
 	}
 }
